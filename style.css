@@ -19,6 +19,181 @@ html {
 
 
 body {
+   <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #050508;
+        color: #ffffff;
+        min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    /* ===== DYNAMIC BACKGROUND ===== */
+
+    body::before {
+        content: "";
+        position: fixed;
+        inset: -50%;
+        z-index: -2;
+
+        background:
+            radial-gradient(
+                circle at 20% 30%,
+                rgba(90, 80, 255, 0.25),
+                transparent 25%
+            ),
+            radial-gradient(
+                circle at 80% 20%,
+                rgba(0, 200, 255, 0.18),
+                transparent 25%
+            ),
+            radial-gradient(
+                circle at 50% 80%,
+                rgba(180, 50, 255, 0.20),
+                transparent 30%
+            );
+
+        animation: backgroundMove 15s ease-in-out infinite alternate;
+    }
+
+    body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+
+        background:
+            linear-gradient(
+                120deg,
+                transparent 0%,
+                rgba(255,255,255,0.025) 50%,
+                transparent 100%
+            );
+
+        background-size: 300% 300%;
+        animation: shineMove 10s linear infinite;
+        pointer-events: none;
+    }
+
+    @keyframes backgroundMove {
+        0% {
+            transform: translate(-5%, -5%) scale(1);
+        }
+
+        50% {
+            transform: translate(5%, 3%) scale(1.1);
+        }
+
+        100% {
+            transform: translate(-3%, 6%) scale(1.05);
+        }
+    }
+
+    @keyframes shineMove {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        100% {
+            background-position: 300% 50%;
+        }
+    }
+
+    /* ===== CONTENT ===== */
+
+    .core-container {
+        width: 90%;
+        max-width: 1100px;
+        margin: auto;
+        padding: 60px 20px;
+    }
+
+    .core-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .core-header h1 {
+        font-size: 3rem;
+        margin-bottom: 15px;
+    }
+
+    .core-header p {
+        color: #aaa;
+        font-size: 1.1rem;
+    }
+
+    .core-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 25px;
+    }
+
+    .core-box {
+        background: rgba(17, 17, 22, 0.75);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 18px;
+        padding: 30px;
+        text-align: center;
+        transition: 0.3s ease;
+    }
+
+    .core-box:hover {
+        transform: translateY(-8px);
+        border-color: rgba(255,255,255,0.5);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    }
+
+    .core-box h2 {
+        margin-bottom: 12px;
+    }
+
+    .core-box p {
+        color: #aaa;
+        line-height: 1.6;
+    }
+
+    .core-button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        border-radius: 8px;
+        background: #ffffff;
+        color: #000000;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .core-button:hover {
+        opacity: 0.8;
+    }
+
+    .core-footer {
+        text-align: center;
+        margin-top: 70px;
+        padding-top: 25px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        color: #777;
+    }
+
+    @media (max-width: 600px) {
+        .core-header h1 {
+            font-size: 2.2rem;
+        }
+    }
+</style>
     font-family: Arial, Helvetica, sans-serif;
     background: #050508;
     color: #ffffff;
