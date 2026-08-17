@@ -4,34 +4,172 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="7 Boxes — useful digital tools">
+    <title>7 Boxes — Core</title>
 
-    <title>7 Boxes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <link rel="stylesheet" href="../styles.css">
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #050508;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .core-container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+
+        .core-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .core-header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .core-header p {
+            color: #aaa;
+            font-size: 1.1rem;
+        }
+
+        .core-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .core-box {
+            background: #111116;
+            border: 1px solid #292933;
+            border-radius: 18px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .core-box:hover {
+            transform: translateY(-8px);
+            border-color: #ffffff;
+        }
+
+        .core-box h2 {
+            margin-bottom: 12px;
+        }
+
+        .core-box p {
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        .core-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            background: #ffffff;
+            color: #000000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .core-button:hover {
+            opacity: 0.8;
+        }
+
+        .core-footer {
+            text-align: center;
+            margin-top: 70px;
+            padding-top: 25px;
+            border-top: 1px solid #222;
+            color: #777;
+        }
+
+        @media (max-width: 600px) {
+            .core-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .core-container {
+                padding-top: 40px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <header class="site-header">
-        <a href="../index.html" class="logo">7 Boxes</a>
+    <div class="core-container">
 
-        <nav>
-            <a href="../index.html">Home</a>
-        </nav>
-    </header>
+        <header class="core-header">
+            <h1>7 Boxes</h1>
+            <p>Your collection of useful digital tools.</p>
+        </header>
 
-    <main class="page-container">
+        <section class="core-grid">
 
-        <!-- Tool content will go here -->
+            <div class="core-box">
+                <h2>Box 1</h2>
+                <p>Your first useful tool.</p>
+                <a href="#" class="core-button">Open</a>
+            </div>
 
-    </main>
+            <div class="core-box">
+                <h2>Box 2</h2>
+                <p>Your second useful tool.</p>
+                <a href="#" class="core-button">Open</a>
+            </div>
 
-    <footer class="site-footer">
-        <p>© 2026 7 Boxes</p>
-    </footer>
+            <div class="core-box">
+                <h2>Box 3</h2>
+                <p>Your third useful tool.</p>
+                <a href="#" class="core-button">Open</a>
+            </div>
 
-    <script src="../script.js"></script>
+            <div class="core-box">
+                <h2>Box 4</h2>
+                <p>Your fourth useful tool.</p>
+                <a href="#" class="core-button">Open</a>
+            </div>
+
+            <div class="core-box">
+                <h2>Box 5</h2>
+                <p>Your fifth useful tool.</p>
+                <a href="#" class="core-button">Open</a>
+            </div>
+
+            <div class="core-box">
+                <h2>Box 6</h2>
+                <p>Your sixth useful tool.</p>
+                <a href="#" class="core-button">Open</a>
+            </div>
+
+            <div class="core-box">
+                <h2>Box 7</h2>
+                <p>Your seventh useful tool.</p>
+                <a href="#" class="core-button">Open</a>
+            </div>
+
+        </section>
+
+        <footer class="core-footer">
+            <p>© 2026 7 Boxes</p>
+        </footer>
+
+    </div>
 
 </body>
 </html>
