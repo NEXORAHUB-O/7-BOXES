@@ -1,175 +1,1128 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="7 Boxes — a collection of useful digital tools"
+    >
+
+    <meta
+        name="theme-color"
+        content="#050508"
+    >
 
     <title>7 Boxes — Core</title>
 
+
     <style>
+
+        /* ========================================
+           7 BOXES — LEVEL 2
+           CORE STYLE
+        ======================================== */
+
+
+        /* ---------- RESET ---------- */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
 
+
         body {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
             background: #050508;
+
             color: #ffffff;
+
             min-height: 100vh;
+
+            overflow-x: hidden;
+
+            position: relative;
         }
 
-        .core-container {
-            width: 90%;
-            max-width: 1100px;
-            margin: auto;
-            padding: 60px 20px;
+
+
+        /* ========================================
+           DYNAMIC BACKGROUND
+        ======================================== */
+
+        body::before {
+
+            content: "";
+
+            position: fixed;
+
+            width: 200%;
+            height: 200%;
+
+            top: -50%;
+            left: -50%;
+
+            z-index: -2;
+
+            background:
+
+                radial-gradient(
+                    circle at 20% 30%,
+                    rgba(90, 80, 255, 0.25),
+                    transparent 25%
+                ),
+
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(0, 200, 255, 0.18),
+                    transparent 25%
+                ),
+
+                radial-gradient(
+                    circle at 50% 80%,
+                    rgba(180, 50, 255, 0.20),
+                    transparent 30%
+                );
+
+            animation:
+                backgroundMove 18s
+                ease-in-out
+                infinite
+                alternate;
         }
 
-        .core-header {
-            text-align: center;
-            margin-bottom: 50px;
+
+
+        /* ---------- MOVING LIGHT ---------- */
+
+        body::after {
+
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: -1;
+
+            pointer-events: none;
+
+            background:
+
+                linear-gradient(
+                    120deg,
+                    transparent 0%,
+                    rgba(255,255,255,0.025) 50%,
+                    transparent 100%
+                );
+
+            background-size: 300% 300%;
+
+            animation:
+                lightMove 12s
+                linear
+                infinite;
         }
 
-        .core-header h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
+
+
+        /* ---------- BACKGROUND ANIMATION ---------- */
+
+        @keyframes backgroundMove {
+
+            0% {
+                transform:
+                    translate(-5%, -5%)
+                    scale(1);
+            }
+
+            50% {
+                transform:
+                    translate(5%, 3%)
+                    scale(1.1);
+            }
+
+            100% {
+                transform:
+                    translate(-3%, 6%)
+                    scale(1.05);
+            }
         }
 
-        .core-header p {
-            color: #aaa;
-            font-size: 1.1rem;
+
+        @keyframes lightMove {
+
+            0% {
+                background-position:
+                    0% 50%;
+            }
+
+            100% {
+                background-position:
+                    300% 50%;
+            }
         }
 
-        .core-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+
+        /* ========================================
+           HEADER
+        ======================================== */
+
+        .core-header-bar {
+
+            width: 100%;
+
+            padding:
+                18px
+                6%;
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items: center;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            background:
+                rgba(5,5,8,0.55);
+
+            backdrop-filter:
+                blur(15px);
+
+            -webkit-backdrop-filter:
+                blur(15px);
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+        }
+
+
+
+        /* ---------- LOGO ---------- */
+
+        .logo {
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 1.4rem;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+        }
+
+
+
+        /* ---------- NAVIGATION ---------- */
+
+        .navigation {
+
+            display: flex;
+
             gap: 25px;
         }
 
-        .core-box {
-            background: #111116;
-            border: 1px solid #292933;
-            border-radius: 18px;
-            padding: 30px;
-            text-align: center;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+
+        .navigation a {
+
+            color: #aaaaaa;
+
+            text-decoration: none;
+
+            font-size: 0.95rem;
+
+            transition:
+                color 0.25s ease;
         }
+
+
+        .navigation a:hover {
+
+            color: #ffffff;
+        }
+
+
+
+        /* ========================================
+           MAIN CONTAINER
+        ======================================== */
+
+        .core-container {
+
+            width: 90%;
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding:
+                70px
+                20px
+                50px;
+        }
+
+
+
+        /* ========================================
+           HERO SECTION
+        ======================================== */
+
+        .hero {
+
+            text-align: center;
+
+            margin-bottom: 65px;
+
+            animation:
+                heroAppear 0.8s
+                ease-out;
+        }
+
+
+        .hero h1 {
+
+            font-size:
+                clamp(
+                    2.5rem,
+                    7vw,
+                    5rem
+                );
+
+            font-weight: 800;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 18px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    #ffffff,
+                    #bcbcff,
+                    #ffffff
+                );
+
+            background-size:
+                200% auto;
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color:
+                transparent;
+
+            animation:
+                titleShine 5s
+                linear
+                infinite;
+        }
+
+
+        .hero p {
+
+            max-width: 650px;
+
+            margin:
+                0 auto;
+
+            color: #a5a5ad;
+
+            font-size:
+                clamp(
+                    1rem,
+                    2vw,
+                    1.15rem
+                );
+
+            line-height: 1.7;
+        }
+
+
+
+        /* ---------- HERO ANIMATION ---------- */
+
+        @keyframes heroAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(25px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        @keyframes titleShine {
+
+            0% {
+                background-position:
+                    0% center;
+            }
+
+            100% {
+                background-position:
+                    200% center;
+            }
+        }
+
+
+
+        /* ========================================
+           7 BOX GRID
+        ======================================== */
+
+        .core-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(
+                        230px,
+                        1fr
+                    )
+                );
+
+            gap: 25px;
+        }
+
+
+
+        /* ========================================
+           BOX
+        ======================================== */
+
+        .core-box {
+
+            position: relative;
+
+            padding: 32px 25px;
+
+            min-height: 230px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            background:
+                rgba(
+                    17,
+                    17,
+                    22,
+                    0.68
+                );
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.10
+                );
+
+            border-radius: 20px;
+
+            backdrop-filter:
+                blur(14px);
+
+            -webkit-backdrop-filter:
+                blur(14px);
+
+            overflow: hidden;
+
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+
+            animation:
+                boxAppear 0.7s
+                ease-out
+                backwards;
+        }
+
+
+
+        /* ---------- BOX LIGHT ---------- */
+
+        .core-box::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 150px;
+
+            height: 150px;
+
+            top: -80px;
+
+            right: -80px;
+
+            background:
+                rgba(
+                    120,
+                    100,
+                    255,
+                    0.15
+                );
+
+            border-radius: 50%;
+
+            filter:
+                blur(30px);
+
+            transition:
+                transform 0.5s ease;
+        }
+
+
+
+        /* ---------- BOX HOVER ---------- */
 
         .core-box:hover {
-            transform: translateY(-8px);
-            border-color: #ffffff;
+
+            transform:
+                translateY(-10px);
+
+            border-color:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.35
+                );
+
+            box-shadow:
+                0 20px 50px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.45
+                );
         }
+
+
+        .core-box:hover::before {
+
+            transform:
+                scale(2);
+        }
+
+
+
+        /* ---------- BOX ANIMATION DELAYS ---------- */
+
+        .core-box:nth-child(1) {
+            animation-delay: 0.05s;
+        }
+
+        .core-box:nth-child(2) {
+            animation-delay: 0.10s;
+        }
+
+        .core-box:nth-child(3) {
+            animation-delay: 0.15s;
+        }
+
+        .core-box:nth-child(4) {
+            animation-delay: 0.20s;
+        }
+
+        .core-box:nth-child(5) {
+            animation-delay: 0.25s;
+        }
+
+        .core-box:nth-child(6) {
+            animation-delay: 0.30s;
+        }
+
+        .core-box:nth-child(7) {
+            animation-delay: 0.35s;
+        }
+
+
+
+        @keyframes boxAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+
+        /* ========================================
+           BOX ICON
+        ======================================== */
+
+        .box-icon {
+
+            width: 60px;
+
+            height: 60px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 18px;
+
+            border-radius: 16px;
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.08
+                );
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.12
+                );
+
+            font-size: 1.5rem;
+        }
+
+
+
+        /* ========================================
+           BOX TEXT
+        ======================================== */
 
         .core-box h2 {
-            margin-bottom: 12px;
+
+            font-size:
+                1.35rem;
+
+            margin-bottom:
+                10px;
         }
+
 
         .core-box p {
-            color: #aaa;
-            line-height: 1.6;
+
+            color:
+                #9999a3;
+
+            line-height:
+                1.6;
+
+            font-size:
+                0.95rem;
         }
+
+
+
+        /* ========================================
+           BUTTON
+        ======================================== */
 
         .core-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            border-radius: 8px;
-            background: #ffffff;
-            color: #000000;
-            text-decoration: none;
-            font-weight: bold;
+
+            display:
+                inline-block;
+
+            margin-top:
+                20px;
+
+            padding:
+                11px
+                22px;
+
+            border-radius:
+                10px;
+
+            background:
+                #ffffff;
+
+            color:
+                #000000;
+
+            text-decoration:
+                none;
+
+            font-weight:
+                700;
+
+            font-size:
+                0.9rem;
+
+            transition:
+                transform 0.25s ease,
+                opacity 0.25s ease;
         }
+
 
         .core-button:hover {
-            opacity: 0.8;
+
+            transform:
+                scale(1.05);
+
+            opacity:
+                0.85;
         }
+
+
+
+        /* ========================================
+           FOOTER
+        ======================================== */
 
         .core-footer {
-            text-align: center;
-            margin-top: 70px;
-            padding-top: 25px;
-            border-top: 1px solid #222;
-            color: #777;
+
+            text-align:
+                center;
+
+            margin-top:
+                75px;
+
+            padding-top:
+                25px;
+
+            border-top:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.08
+                );
+
+            color:
+                #666670;
+
+            font-size:
+                0.85rem;
         }
 
-        @media (max-width: 600px) {
-            .core-header h1 {
-                font-size: 2.2rem;
+
+
+        /* ========================================
+           MOBILE
+        ======================================== */
+
+        @media (max-width: 650px) {
+
+            .core-header-bar {
+
+                padding:
+                    15px
+                    5%;
             }
+
+
+            .navigation {
+
+                gap: 12px;
+            }
+
+
+            .navigation a {
+
+                font-size:
+                    0.85rem;
+            }
+
 
             .core-container {
-                padding-top: 40px;
+
+                padding-top:
+                    45px;
+            }
+
+
+            .hero {
+
+                margin-bottom:
+                    40px;
+            }
+
+
+            .core-grid {
+
+                grid-template-columns:
+                    1fr;
+
+                gap:
+                    18px;
+            }
+
+
+            .core-box {
+
+                min-height:
+                    210px;
             }
         }
+
+
+
+        /* ========================================
+           REDUCED MOTION
+        ======================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation:
+                    none !important;
+
+                transition:
+                    none !important;
+            }
+        }
+
     </style>
+
 </head>
+
+
 
 <body>
 
-    <div class="core-container">
 
-        <header class="core-header">
-            <h1>7 Boxes</h1>
-            <p>Your collection of useful digital tools.</p>
-        </header>
+    <!-- ========================================
+         HEADER
+    ======================================== -->
 
-        <section class="core-grid">
+    <header class="core-header-bar">
 
-            <div class="core-box">
-                <h2>Box 1</h2>
-                <p>Your first useful tool.</p>
-                <a href="#" class="core-button">Open</a>
-            </div>
+        <a
+            href="../index.html"
+            class="logo"
+        >
+            7 Boxes
+        </a>
 
-            <div class="core-box">
-                <h2>Box 2</h2>
-                <p>Your second useful tool.</p>
-                <a href="#" class="core-button">Open</a>
-            </div>
 
-            <div class="core-box">
-                <h2>Box 3</h2>
-                <p>Your third useful tool.</p>
-                <a href="#" class="core-button">Open</a>
-            </div>
+        <nav class="navigation">
 
-            <div class="core-box">
-                <h2>Box 4</h2>
-                <p>Your fourth useful tool.</p>
-                <a href="#" class="core-button">Open</a>
-            </div>
+            <a href="../index.html">
+                Home
+            </a>
 
-            <div class="core-box">
-                <h2>Box 5</h2>
-                <p>Your fifth useful tool.</p>
-                <a href="#" class="core-button">Open</a>
-            </div>
+        </nav>
 
-            <div class="core-box">
-                <h2>Box 6</h2>
-                <p>Your sixth useful tool.</p>
-                <a href="#" class="core-button">Open</a>
-            </div>
+    </header>
 
-            <div class="core-box">
-                <h2>Box 7</h2>
-                <p>Your seventh useful tool.</p>
-                <a href="#" class="core-button">Open</a>
-            </div>
+
+
+    <!-- ========================================
+         MAIN
+    ======================================== -->
+
+    <main class="core-container">
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <h1>
+                7 Boxes
+            </h1>
+
+            <p>
+                A collection of simple,
+                useful and powerful digital tools
+                designed to make everyday tasks easier.
+            </p>
 
         </section>
 
-        <footer class="core-footer">
-            <p>© 2026 7 Boxes</p>
-        </footer>
 
-    </div>
+
+        <!-- ====================================
+             SEVEN BOXES
+        ==================================== -->
+
+        <section class="core-grid">
+
+
+            <!-- BOX 1 -->
+
+            <article class="core-box">
+
+                <div class="box-icon">
+                    01
+                </div>
+
+                <h2>
+                    Box One
+                </h2>
+
+                <p>
+                    Your first digital tool.
+                    Fast, simple and easy to use.
+                </p>
+
+                <a
+                    href="#"
+                    class="core-button"
+                >
+                    Open
+                </a>
+
+            </article>
+
+
+
+            <!-- BOX 2 -->
+
+            <article class="core-box">
+
+                <div class="box-icon">
+                    02
+                </div>
+
+                <h2>
+                    Box Two
+                </h2>
+
+                <p>
+                    Your second useful tool
+                    for everyday tasks.
+                </p>
+
+                <a
+                    href="#"
+                    class="core-button"
+                >
+                    Open
+                </a>
+
+            </article>
+
+
+
+            <!-- BOX 3 -->
+
+            <article class="core-box">
+
+                <div class="box-icon">
+                    03
+                </div>
+
+                <h2>
+                    Box Three
+                </h2>
+
+                <p>
+                    A simple tool designed
+                    to save you time.
+                </p>
+
+                <a
+                    href="#"
+                    class="core-button"
+                >
+                    Open
+                </a>
+
+            </article>
+
+
+
+            <!-- BOX 4 -->
+
+            <article class="core-box">
+
+                <div class="box-icon">
+                    04
+                </div>
+
+                <h2>
+                    Box Four
+                </h2>
+
+                <p>
+                    Another useful digital
+                    tool in the collection.
+                </p>
+
+                <a
+                    href="#"
+                    class="core-button"
+                >
+                    Open
+                </a>
+
+            </article>
+
+
+
+            <!-- BOX 5 -->
+
+            <article class="core-box">
+
+                <div class="box-icon">
+                    05
+                </div>
+
+                <h2>
+                    Box Five
+                </h2>
+
+                <p>
+                    A practical tool built
+                    for quick everyday use.
+                </p>
+
+                <a
+                    href="#"
+                    class="core-button"
+                >
+                    Open
+                </a>
+
+            </article>
+
+
+
+            <!-- BOX 6 -->
+
+            <article class="core-box">
+
+                <div class="box-icon">
+                    06
+                </div>
+
+                <h2>
+                    Box Six
+                </h2>
+
+                <p>
+                    A powerful little tool
+                    inside 7 Boxes.
+                </p>
+
+                <a
+                    href="#"
+                    class="core-button"
+                >
+                    Open
+                </a>
+
+            </article>
+
+
+
+            <!-- BOX 7 -->
+
+            <article class="core-box">
+
+                <div class="box-icon">
+                    07
+                </div>
+
+                <h2>
+                    Box Seven
+                </h2>
+
+                <p>
+                    The seventh tool in
+                    your digital toolbox.
+                </p>
+
+                <a
+                    href="#"
+                    class="core-button"
+                >
+                    Open
+                </a>
+
+            </article>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+
+    <footer class="core-footer">
+
+        <p>
+            © 2026 7 Boxes. All rights reserved.
+        </p>
+
+    </footer>
+
 
 </body>
+
 </html>
